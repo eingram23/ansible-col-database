@@ -6,4 +6,4 @@
     login_password: "{{ lookup('hashi_vault', 'secret=secret/data/ssh/eingram:ssh_password') }}"
     state: absent
     name: "{{ mariadb_user }}"
-    host: '127.0.0.1'
+    host: '%'
