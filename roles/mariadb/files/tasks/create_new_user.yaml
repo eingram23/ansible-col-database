@@ -1,0 +1,11 @@
+---
+- name: Create mariadb user
+  community.mysql.mysql_user:
+    login_host: 127.0.0.1
+    login_user: root
+    login_password: "{{ lookup('hashi_vault', 'secret=secret/data/ssh/eingram:ssh_password') }}"
+    state: present
+    name: "{{ mariadb_user }}"
+    host: 127.0.0.1
+    password: "{{ mariadb_user_pw }}"
+    priv: "{{ mariadb_user_priv }}"
