@@ -1,5 +1,5 @@
 ---
-- name: Create new mariadb database
+- name: Create {{ mariadb_db }} mariadb database
   community.mysql.mysql_db:
     login_host: 127.0.0.1
     login_user: root

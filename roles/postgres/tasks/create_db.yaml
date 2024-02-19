@@ -1,0 +1,10 @@
+---
+- name: Create postgres database
+  community.postgresql.postgresql_db:
+    connect_params:
+      target_session_attrs: read-write
+      connect_timeout: 10
+    login_host: "postgres.local.lan"
+    login_user: "admin"
+    login_password: "{{ lookup('hashi_vault', 'secret=secret/ssh/eingram:ssh_password') }}"
+    name: "{{ postgres_db }}"
